@@ -1,0 +1,332 @@
+/* リセットと基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ヘッダー */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+}
+
+/* 入力セクション */
+.input-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.input-section label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+#prompt-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+#prompt-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#char-count {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.primary-btn:disabled {
+    background: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+/* 結果セクション */
+.result-section {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* スコアカード */
+.score-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    flex-shrink: 0;
+}
+
+.score-circle #score-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.score-circle .score-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.score-description h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.score-description p {
+    color: var(--text-secondary);
+}
+
+/* 構造情報 */
+.structure-info {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.structure-info h3 {
+    margin-bottom: 1rem;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.missing {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* 問題・提案セクション */
+.issues-section,
+.suggestions-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.issues-section h3,
+.suggestions-section h3 {
+    margin-bottom: 1rem;
+}
+
+.issues-section ul,
+.suggestions-section ul {
+    list-style: none;
+}
+
+.issues-section li,
+.suggestions-section li {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.issues-section li:last-child,
+.suggestions-section li:last-child {
+    margin-bottom: 0;
+}
+
+.issues-section li {
+    background: #fef2f2;
+    border-left: 4px solid var(--warning-color);
+}
+
+.suggestions-section li {
+    background: #eff6ff;
+    border-left: 4px solid var(--info-color);
+}
+
+.issue-message,
+.suggestion-message {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.issue-suggestion,
+.suggestion-example {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* 最適化されたプロンプト */
+.optimized-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.optimized-section h3 {
+    margin-bottom: 1rem;
+}
+
+.optimized-prompt {
+    position: relative;
+    background: #f1f5f9;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.optimized-prompt pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.copy-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .score-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .badges {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプト最適化支援ツール</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>プロンプト最適化支援ツール</h1>
+            <p class="subtitle">LLM向けプロンプトを分析し、改善提案を行います</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <label for="prompt-input">プロンプトを入力してください</label>
+                <textarea
+                    id="prompt-input"
+                    placeholder="例: ChatGPTに送るプロンプトを入力..."
+                    rows="8"
+                ></textarea>
+                <div class="input-footer">
+                    <span id="char-count">0 文字</span>
+                    <button id="analyze-btn" class="primary-btn">分析する</button>
+                </div>
+            </section>
+
+            <section id="result-section" class="result-section hidden">
+                <div class="score-card">
+                    <div class="score-circle">
+                        <span id="score-value">0</span>
+                        <span class="score-label">スコア</span>
+                    </div>
+                    <div class="score-description">
+                        <h3 id="score-title">分析中...</h3>
+                        <p id="score-message"></p>
+                    </div>
+                </div>
+
+                <div class="structure-info">
+                    <h3>構造分析</h3>
+                    <div id="structure-badges" class="badges"></div>
+                </div>
+
+                <div id="issues-section" class="issues-section">
+                    <h3>検出された問題</h3>
+                    <ul id="issues-list"></ul>
+                </div>
+
+                <div id="suggestions-section" class="suggestions-section">
+                    <h3>改善提案</h3>
+                    <ul id="suggestions-list"></ul>
+                </div>
+
+                <div id="optimized-section" class="optimized-section">
+                    <h3>最適化されたプロンプト案</h3>
+                    <div class="optimized-prompt">
+                        <pre id="optimized-prompt"></pre>
+                        <button id="copy-btn" class="copy-btn">コピー</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>プロンプトエンジニアリングのベストプラクティスに基づいて分析します</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
